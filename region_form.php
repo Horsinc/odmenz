@@ -351,15 +351,13 @@ if (isset($_POST['region_form'])) {
           die('Ошибка подключения: ' . mysqli_connect_error());
         }
         $id_region=$_SESSION['selected_region'];
-        echo $id_region;
         $votes=0;
         $sql = "SELECT votes_count FROM votes WHERE id_region=$id_region";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
-            $votes+=$row['votes_count'];
+            $votes=$row['votes_count'];
           }
-          echo $votes;
         }
         $sql = "SELECT id_okrug FROM regions WHERE id_region=$id_region";
         $result = mysqli_query($conn, $sql);
@@ -368,8 +366,7 @@ if (isset($_POST['region_form'])) {
             $id_okruga=$row['id_okrug'];
           }
         }
-        $votes=$votes+1;
-        echo $id_okruga;
+        $votes=$votes-1094;
         if($votes==1){
         $sql = "INSERT INTO votes (id_region, id_okruga, votes_count) VALUES ('$id_region', '$id_okruga', '$votes')";
         $result = mysqli_query($conn, $sql);
