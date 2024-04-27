@@ -169,7 +169,6 @@ section{
       <span class="okrug_form"><a href="okrug_form.php" class="textheader">Форма</a></span>
       <?php
         session_start();
-
         if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
             require_once "db.php";
             $conn = db();
@@ -182,9 +181,9 @@ section{
           $user_id = '';
         }
         ?>
-			<?php if (isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id'])) : ?>
+      <?php if (isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id'])) : ?>
       <span class="contacts"><a href="adm/index.php" class="textheader">Админка</a></span>
-			<?php endif; ?>
+      <?php endif; ?>
       <span class="contacts"><?php echo '<a href=Profile.php>'. $user_id .'</a>'; ?>
         <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
           <a href="exit.php" class="textheader"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="50" height="60" viewBox="-5 6 40 40" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -195,8 +194,8 @@ section{
           </a>
           <a href="cart.php" class="textheader"><img src="img/cart_image.png" style="width:30px;"></a>
         <?php else: ?>
-				<span class="contacts"><a class="textheader" href="#" id="registrationLink"><img style="scale:1.8;" src="img\untitled.svg"></a></span>
-				<?php endif; ?>
+        <span class="contacts"><a class="textheader" href="#" id="registrationLink"><img style="scale:1.8;" src="img\untitled.svg"></a></span>
+        <?php endif; ?>
       </span>
     </div>
     <div id="registrationBlock" class="container right-panel-active">
@@ -240,51 +239,145 @@ section{
     </div>
 
   </header>
-  <main>
-    <form action="region_form">
-        <label for="id_region">Регион:</label>
-        <select name="id_region">
-          <?php
-            $id_okruga=$_POST('id_okruga');
-            require_once "db.php";
-            $conn = db();
-            if (!$conn) {
-                die('Ошибка подключения: ' . mysqli_connect_error());
+<main>
+  <div style="margin-left: auto;
+    width: 500px;
+    margin-top: 300px;scale:2;
+        margin-right: 400px;">
+  <form action="region_form.php" method="post">
+    <label for="id_region" style="color: white;">Выберите регион:</label>
+    <select name="id_region" id="id_region">
+      <?php
+      session_start();
+      
+        $id_okruga = $_GET['id_okruga'];
+        $_SESSION['id_okruga']= $id_okruga;
+        require_once "db.php";
+        $conn = db();
+        
+        if (!$conn) {
+          die('Ошибка подключения: ' . mysqli_connect_error());
+        }
+        $id_region=$_POST['id_region'];
+        if ($id_region==null){
+          $sql = "SELECT id_region, name FROM regions WHERE id_okrug=$id_okruga";
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<option value="' . $row['id_region'] . '">' . $row['name'] . '</option>';
             }
-            $sql="SELECT id_region, name FROM regions Where id_okruga=$id_okruga";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo'<option value="'. $row['id_region'] .'">' . $row['name'] . '</option>';
-                 }
+          } else {
+            echo 'Результатов нет';
+          }
+        }
+        else{
+          $sql = "SELECT name FROM regions WHERE id_region=$id_region";
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<option value="' . $row['id_region'] . '">' . $row['name'] . '</option>';
             }
-            else{
-                echo 'Результатов нет';
+          }
+        
+      }
+      ?>
+      
+    </select>
+    <input type="submit" name="save_id_region" value="Выбрать">
+  </form>
+  <br>
+  <form action="region_form.php" method="post">
+    <label for="id_hike" style="color: white;">Тропа:</label>
+    <select name="id_hike">
+      <?php
+        if (isset($_POST['id_region'])) {
+          $id_region_selected = $_POST['id_region'];
+          echo $id_region_selected;
+          require_once "db.php";
+          $conn = db();
+          if (!$conn) {
+            die('Ошибка подключения: ' . mysqli_connect_error());
+          }
+
+          $sql = "SELECT id_hike, name_hike FROM hike WHERE hike.id_region=$id_region_selected";
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<option value="' . $row['id_hike'] . '">' . $row['name_hike'] . '</option>';
             }
-          ?>
-        <label for="id_hike">Тропа:</label>
-        <select name="id_hike"></select>
-          <?php
-            require_once "db.php";
-            $conn = db();
-            if (!$conn) {
-                die('Ошибка подключения: ' . mysqli_connect_error());
-            }
-            $sql="SELECT id_hike, name_hike name FROM hike WHERE hike.id_region=region.id_region";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo'<option value="'. $row['id_hike'] .'">' . $row['name_hike'] . '</option>';
-                 }
-            }
-            else{
-                echo 'Результатов нет';
-            }
-          ?>
-        </select>
-    </form>
-    
-  </main>
-</div>
+          } else {
+            echo 'Результатов нет';
+          }
+        }
+      ?>
+    </select>
+    <br>
+    <br>
+    <input type="submit" name="region_form" value="Дать голос">
+  </form>
+  </div>
+</main>
 </body>
+<?php
+function saveIdRegion() {
+  if (isset($_POST['id_region'])) {
+    $id_region = $_POST['id_region'];
+
+    // Start the session if it's not already started
+    if (session_status() === PHP_SESSION_NONE) {
+      session_start();
+    }
+
+    // Store the selected region in the session variable
+    $_SESSION['selected_region'] = $id_region;
+  } else {
+    echo "Error: No 'id_region' found in POST data";
+  }
+}
+
+// Call the function to handle the form submission
+if (isset($_POST['save_id_region'])) {
+  saveIdRegion();
+}
+if (isset($_POST['region_form'])) {
+  session_start();
+  require_once "db.php";
+        $conn = db();
+
+        if (!$conn) {
+          die('Ошибка подключения: ' . mysqli_connect_error());
+        }
+        $id_region=$_SESSION['selected_region'];
+        echo $id_region;
+        $votes=0;
+        $sql = "SELECT votes_count FROM votes WHERE id_region=$id_region";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $votes+=$row['votes_count'];
+          }
+          echo $votes;
+        }
+        $sql = "SELECT id_okrug FROM regions WHERE id_region=$id_region";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $id_okruga=$row['id_okrug'];
+          }
+        }
+        $votes=$votes+1;
+        echo $id_okruga;
+        if($votes==1){
+        $sql = "INSERT INTO votes (id_region, id_okruga, votes_count) VALUES ('$id_region', '$id_okruga', '$votes')";
+        $result = mysqli_query($conn, $sql);
+        }
+        else{
+          $sql = "UPDATE votes SET votes_count='$votes' WHERE id_region=$id_region";
+          $result = mysqli_query($conn, $sql);
+        }
+}
+?>
 </html>

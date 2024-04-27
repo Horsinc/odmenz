@@ -138,18 +138,19 @@ section{
     <p>
       <strong>ФИО:</strong> <?php echo $user['fio']; ?>
     </p>
-  <form method="post">
     <p>
-      <label for="phone">Номер телефона:</label>
-      <input type="tel" name="phone" id="phone" value="<?php echo $user['phone_number']; ?>">
+      <strong>Номер телефона:</strong> <?php echo $user['phone_number']; ?>
     </p>
     <p>
-      <label for="birthday">Дата рождения:</label>
-      <input type="date" name="birthday" id="birthday" value="<?php echo $user['birthday']; ?>">
+      <strong>Адрес:</strong> <?php echo $user['adress']; ?>
     </p>
-    <p><strong>Скидка:</strong> <?php echo $user['discount']; ?></p>
-    <input type="submit" name="edit" value="Сохранить">
-  </form>
+    <p>
+      <strong>Баланс:</strong> <?php echo $user['sum']; ?>
+    </p>
+    <p>
+      <strong>Голосов:</strong> <?php echo $user['votes']; ?>
+    </p>
+
 
   <h2>Смена пароля</h2>
   <form method="post">
