@@ -75,11 +75,30 @@
         <label for="price_hike">Цена:</label>
         <input type="number" id="price_hike" name="price_hike" required>
         <br>
-        <label for="id_leader">Айди лидера:</label>
-        <input type="number" id="id_leader" name="id_leader" required>
-        <br>
+
         <label for="picture_tour">Изображения:</label>
         <input type="file" id="picture_tour" name="picture_tour[]" multiple required>
+        <br>
+        <label for="id_region">Регион:</label>
+        <select name="id_region">
+          <?php
+            require_once "../db.php";
+            $conn = db();
+            if (!$conn) {
+                die('Ошибка подключения: ' . mysqli_connect_error());
+            }
+            $sql="SELECT id_region, name FROM regions";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                 while ($row = mysqli_fetch_assoc($result)) {
+                    echo'<option value="'. $row['id_region'] .'">' . $row['name'] . '</option>';
+                 }
+            }
+            else{
+                echo 'Результатов нет';
+            }
+          ?>
+        </select>
         <br>
         <br>
         <input type="submit" class="button" value="Добавить">

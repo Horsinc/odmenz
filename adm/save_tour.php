@@ -20,7 +20,7 @@ $kod_map = $_POST['kod_map'];
 $d_start=$_POST['d_start'];
 $d_stop=$_POST['d_stop'];
 $price_hike = $_POST['price_hike'];
-$id_leader = $_POST['id_leader'];
+$id_region = $_POST['id_region'];
 
 
 // Обработка загруженных файлов
@@ -61,11 +61,11 @@ if ($files['error'][0] === 0) {
     exit;
 }
 // Добавление товара
-$sql = "INSERT INTO hike (id_hike, id_pictures, name_hike, description_hike, start_position, stop_position,kod_map, d_start, d_stop, price_hike, id_leader) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO hike (id_hike, id_pictures, name_hike, description_hike, start_position, stop_position,kod_map, d_start, d_stop, price_hike, id_region) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql); 
 
 if ($stmt) {
-  $bind_ok = mysqli_stmt_bind_param($stmt, "sssssssssss", $id_hike, $id_hike_pictures, $name_hike, $description_hike, $start_position, $stop_position, $kod_map, $d_start, $d_stop, $price_hike, $id_leader);
+  $bind_ok = mysqli_stmt_bind_param($stmt, "sssssssssss", $id_hike, $id_hike_pictures, $name_hike, $description_hike, $start_position, $stop_position, $kod_map, $d_start, $d_stop, $price_hike, $id_region);
 
   if ($bind_ok) {
     if (mysqli_stmt_execute($stmt)) {
