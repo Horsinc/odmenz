@@ -25,7 +25,6 @@ header {
 	padding: 33px;
 	display: block;
 	color:#fff;
-	text-align: Montserrat;
 	background-color: rgba(0, 0, 0, 0.4);
 	background: cover;
 	background-position-x: 310px;
@@ -41,7 +40,6 @@ header {
 	padding: 33px;
 	display: block;
 	color:#fff;
-	text-align: Montserrat;
 	background-color: rgba(0, 0, 0, 0.4);	
 	background: cover;
 	background-position-x: 310px;
@@ -57,7 +55,6 @@ header {
 	padding: 33px;
 	display: block;
 	color:#fff;
-	text-align: Montserrat;
 	background-color: rgba(0, 0, 0, 0.4);	
 	background: cover;
 	background-position-x: 310px;
@@ -126,7 +123,13 @@ textarea {
 }
 
 .about-us,
-.tours,
+.tours{
+	font-size: 22px;
+}
+
+.from{
+	font-size: 22px;
+}
 .equipment,
 .contacts {
 	height: 24px;
@@ -272,6 +275,7 @@ a.textheader {
 	text-decoration: none;
 	color: white;
 	transition: 1s; /* Время эффекта */
+	font-family: Trebuchet;
 	text-align: center;
 	transform: scale(1); /* Увеличиваем масштаб */
 }
