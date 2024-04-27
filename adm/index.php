@@ -75,12 +75,12 @@ color: #ffffff;
 <body>
   <h1 style="text-align:center;font-family:Montserrat;">Выберите действие</h1>
     <a href="Clients.php"><button class="button">Клиенты</button></a><br><br>
-    <a href="Products.php"><button class="button">Товары</button></a><br><br>
-    <a href="Tours.php"><button class="button">Туры</button></a><br><br>
+    <!-- <a href="Products.php"><button class="button">Товары</button></a><br><br> -->
+    <a href="Tours.php"><button class="button">Тропы</button></a><br><br>
     <!-- <a href="add_car.php"><button class="button">Добавить Машину</button></a><br><br>
     <a href="delete_car.php"><button class="button">Удалить Машину</button></a><br><br> -->
-    <a href="add_product.php"><button class="button">Добавить Товар</button></a><br><br>
-    <a href="add_tour.php"><button class="button">Добавить Тур</button></a><br><br>
+    <!-- <a href="add_product.php"><button class="button">Добавить Товар</button></a><br><br> -->
+    <a href="add_tour.php"><button class="button">Добавить Тропу</button></a><br><br>
     <!-- <a href="delete_firma.php"><button class="button">Удалить Фирму</button></a><br><br> -->
     <!-- <a href="equiconnection.php"><button class="button">Естественное соединение</button></a><br><br>
     <a href="spisok_mashin.php"><button class="button">Список машин, бывших в употреблении, по алфавиту</button></a><br><br>
