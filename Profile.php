@@ -163,47 +163,16 @@ section{
     </p>
     <input type="submit" name="change_password" value="Сменить пароль">
   </form>
-  <h2 class="tbl-header">Заказы</h2>
-  <?php
-    session_start();
-    require_once "db.php";
-    $conn = db();
-    $id = $_SESSION['id'];
-    $sql = "SELECT id_order, status FROM order_product WHERE id_client = $id";
-    $result = mysqli_query($conn, $sql);
+  <h2 class="tbl-header">Оплата</h2>
+  <form action="oplata.php" method="post">
+        <label for="quantity">Количество голосов:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+        <br>
+        <label for="amount">Желаемая сумма:</label>
+        <input type="number" id="amount" name="amount" min="100" required>
+        <br>
+        <button type="submit">Оплатить</button>
+    </form>
 
-  // Проверка наличия данных
-  if (mysqli_num_rows($result) > 0) {
-    echo '<div class="tbl-header">';
-    echo '<table cellpadding="0" cellspacing="0" border="0">';
-    echo '<thead>';
-    echo '<tr>';
-          echo '<th>Номер заказа</th>';
-          echo '<th>Статус</th>';
-        echo '</tr>';
-      echo '</thead>';
-    echo '</table>';
-  echo '</div>';
-  echo '<div class="tbl-content">';
-  echo '<table cellpadding="0" cellspacing="0" border="0">';
-  echo '<tbody>';
-    while ($row = mysqli_fetch_assoc($result)) {
-      echo '<tr>';
-      echo '<td><a href="confirm.php?id_order=' . $row["id_order"] . '" class="more-details">' . $row['id_order'] . '</td>';
-      echo '<td>' . $row['status'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</tbody>';
-    echo '</table>';
-    echo '</div>';
-  } else {
-    echo 'Нет заказов.';
-  }
-  ?>
 </body>
-<script>// '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
-$(window).on("load resize ", function() {
-  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-  $('.tbl-header').css({'padding-right':scrollWidth});
-}).resize();</script>
 </html>
