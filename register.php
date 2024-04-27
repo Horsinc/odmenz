@@ -6,14 +6,15 @@ $conn = db();
 // Подготовка данных
 $fio = $_POST['fio'];
 $email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
+$password = password_hash($_POST['password'],PASSWORD_BCRYPT);
+$address= $_POST['address'];
+$phone_number= $_POST['phone_number'];
+$male=$_POST['male'];
 // Подготовка запроса
-$stmt = $conn->prepare("INSERT INTO clients (fio, email, password) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $fio, $email, $password);
-
+$sql="INSERT INTO clients (email, password, fio, phone_number, male, adress) VALUES ('$email', '$password', '$fio', '$phone_number', '$male', '$address')";
+$result = mysqli_query($conn, $sql);
 // Выполнение запроса
-if ($stmt->execute()) {
+if ($result==True) {
     echo "Регистрация прошла успешно!";
     header('Location: /');
 } else {

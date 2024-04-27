@@ -15,10 +15,7 @@
   <header class="header">
     <div class="containerr containerr--header">
       <span class="turistic"><a href="index.php" class="textheader">Туришки</a></span>
-      <span class="about-us"><a href="2.html" class="textheader">О нас</a></span>
       <span class="tours"><a href="Tours_page.php" class="textheader">Туры</a></span>
-      <span class="equipment"><a href="all_product_page.php" class="textheader">Экипировка</a></span>
-      <span class="contacts"><a href="2.html" class="textheader">Контакты</a></span>
       <?php
         session_start();
 
@@ -57,8 +54,17 @@
           <div id="form1" class="form">
             <h2 class="form__title">Регистрация</h2>
             <input type="text" placeholder="ФИО" class="input" name="fio" />
+            <fieldset>
+              <legend>Пол:</legend>
+              <div>
+              <input type="radio" name="male" value=0> Женский<Br>
+              <input type="radio" name="male" value=1>Мужской<Br>
+              </div>
+            </fieldset>
             <input type="email" placeholder="Email" class="input" name="email" />
             <input type="password" placeholder="Пароль" class="input" name="password" />
+            <input type="text" placeholder="78005553535" class="input" name="phone_number" />
+            <input type="text" placeholder="г.Рязань ул.Бирюзова д.2 к.2" class="input" name="address" />
             <button class="btn" type="submit">Зарегистрироваться</button>
           </div>
         </form>

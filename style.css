@@ -256,6 +256,9 @@ a.textheader {
 	background-color: #dd9427; /* Green */
 	color: rgb(255, 255, 255);
 }
+.input {
+	height: 20px;
+}
 
 /* Мини магазин */
 
