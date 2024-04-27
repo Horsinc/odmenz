@@ -14,6 +14,54 @@ header {
 	background-position: center center;
 }
 
+.about-project {
+	position: absolute;
+	top: 155px;
+	left: 130px;
+	height: 400px;
+	width: 560px;
+	border-radius: 7%;
+	max-width: 100%;
+	padding: 33px;
+	display: block;
+	color:#fff;
+	text-align: Montserrat;
+	background-color: rgba(0, 0, 0, 0.4);
+	background: cover;
+	background-position-x: 310px;
+}
+.voting-rules {
+	position: absolute;
+	top: 155px;
+	left: 770px;
+	height: 400px;
+	width: 560px;
+	border-radius: 7%;
+	max-width: 100%;
+	padding: 33px;
+	display: block;
+	color:#fff;
+	text-align: Montserrat;
+	background-color: rgba(0, 0, 0, 0.4);	
+	background: cover;
+	background-position-x: 310px;
+}
+.project-development{
+	position: absolute;
+	top: 620px;
+	left: 130px;
+	height: 400px;
+	width: 560px;
+	border-radius: 7%;
+	max-width: 100%;
+	padding: 33px;
+	display: block;
+	color:#fff;
+	text-align: Montserrat;
+	background-color: rgba(0, 0, 0, 0.4);	
+	background: cover;
+	background-position-x: 310px;
+}
 .containerr {
 	margin: 0 auto;
 	max-width: 1440px;
