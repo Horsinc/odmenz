@@ -28,6 +28,7 @@ table{
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgba(0,0,0,0.2);
 }
 th{
  padding: 20px 15px;
