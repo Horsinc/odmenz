@@ -48,6 +48,34 @@
 				<?php endif; ?>
       </span>
     </div>
+    <div id="main_info">
+    
+            <div class="about-project">
+                <h2>О проекте</h2>
+                <p>Пеший туризм переживает возрождение популярности во всем мире, и многие организации и правительства принимают меры по поддержке и развитию этой деятельности.</p>
+                <p>Данный сайт является некоммерческим проектом по продвижению туризма на территории Российской Федерации.</p>
+                <p>Благодаря этому проекту люди могут голосовать за регионы, в которых благодаря пожертвованиям будут развиваться походные тропы</p>
+            </div>
+            <div class="voting-rules">
+                <h2>Правила голосования</h2>
+                <ol>
+                    <li>Окружной этап – определяется 3 региона в рамках каждого округа для прокладки маршрута. По результатам голосования будет представлен перечень из 24 субъектов РФ для проведения второго этапа голосования (3 от каждого округа).</li>
+                    <li>Федеральный этап – в рамках этапа пользователям путем голосования необходимо будет определить Топ-10 регионов из представленных 24.</li>
+                </ol>
+                <p>Минимальная сумма за каждый голос составляет – 100 рублей, однако максимальная сумма не ограничена, НО она не влияет на «вес» голоса.</p>
+            </div>
+            <div class="project-development">
+                <h2>Развитие проекта</h2>
+                <ul>
+                    <li>Создание новых пешеходных троп и маршрутов: Строительство и маркировка новых троп расширяет возможности для пешеходного туризма и делает его более доступным.</li>
+                    <li>Улучшение существующих троп: Ремонт и обслуживание существующих троп обеспечивает безопасность и комфорт туристов.</li>
+                    <li>Создание инфраструктуры для пешеходного туризма: Развитие зон отдыха, кемпингов и других удобств делает пешеходный туризм более привлекательным и доступным для всех.</li>
+                </ul>
+            </div>
+        
+      
+
+    </div>
     <div id="registrationBlock" class="container right-panel-active">
       <div class="container__form container--signup">
         <form action="register.php" method="POST" class=form>
@@ -98,76 +126,6 @@
     </div>
 
   </header>
-  <section>
-    <div class="containerr">
-
-    </div>
-  </section>
-  <section class="tour-section">
-    <div class="wrapper">
-      <div class="tour">
-        <img src="img\pic-tour.png" class="pic-tour"></img>
-        <div class="wrapper-2">
-          <span class="day-tour">10-24</span><span class="month-tour">апреля</span><span
-            class="place-tour">Байкал</span>
-        </div>
-        <img src="img\Arrow 1.png" class="img-arrow-1">
-        <span class="title-tour">Посмотрите все<br />направления туров</span><span class="description-tour">Байкал –
-          место с удивительно красивой природой и уникальной
-          экосистемой.Достопримечательности Байкала – это не только уникальная
-          природа, но и рукотворные памятники.</span>
-        <form action="Page_tours.php" target="_blank">
-          <div class="wrapper-3"><button class="smotretvsem-tour-button">Смотреть все</button></div>
-        </form>
-      </div>
-  </section>
-  <section class="mini-shop-section">
-    <div class="mini-shop">
-      <div class="tovar-1">
-        <span class="span">Изготовлен для самых первых шагов со всеми удобствами</span>
-        <img src="img\pic-tovar1.png" class="pic-tovar1"></img>
-        <span class="span-3">Набор “Новичок”</span><span class="span-4">7.990₽</span>
-        <button class="button">
-          <span>Добавить</span>
-          <div class="cart">
-            <svg viewBox="0 0 36 26">
-              <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
-              <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
-            </svg>
-          </div>
-        </button>
-      </div>
-      <div class="tovar-2">
-        <span class="novice-set">Набор “Новичок”</span>
-        <img src="img/pic-tovar2.png" class="pic-tovar2"> </img>
-        <span class="convenient-first-steps">Изготовлен для самых первых шагов со всеми удобствами</span>
-        <span class="ruble">7.990₽</span>
-        <button class="button">
-          <span>Добавить</span>
-          <div class="cart">
-            <svg viewBox="0 0 36 26">
-              <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
-              <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
-            </svg>
-          </div>
-        </button>
-      </div>
-      <div class="tovar-3">
-        <span class="convenient-first-steps-9">Изготовлен для самых первых шагов со всеми удобствами</span>
-        <img src="img\pic-tovar3.png" class="pic-tovar3"></img>
-        <span class="nabir-novichok">Набор “Новичок”</span><span class="ruble-b">7.990₽</span>
-        <button class="button">
-          <span>Добавить</span>
-          <div class="cart">
-            <svg viewBox="0 0 36 26">
-              <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
-              <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
 
 
   <script src="js.js"></script>
