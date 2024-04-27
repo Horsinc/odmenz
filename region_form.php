@@ -241,44 +241,49 @@ section{
 
   </header>
   <main>
-    <section class="cart">
-      <h2 style="margin-top:50px;">Выбор округа</h2>
-      <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <thead>
-            <tr>
-              <th>Округ</th>
-              <th>Выбор</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <?php
-                require_once "db.php";
-                $conn = db();
-                if ($conn->connect_error) {
-                  die("Ошибка подключения: " . $conn->connect_error);
-                }
-              $sql = "SELECT name, id_okruga FROM okruga order by id_okruga";
-              $result = $conn->query($sql);
-              while ($row = $result->fetch_assoc()){
-                echo '<tr>';
-
-                  echo '<td>'. $row['name'] . '</td>';
-                  echo '<td><button class="button"><a href="region_form.php?id_okruga=' . $row["id_okruga"] . '" class="more-details">				
-                        <button class="button-17">Выбрать</button></a></td>';
-                echo '</tr>';
-              }
-            ?>
-            
-          </tbody>
-        </table>
-      </div>
-    </table>
-    </section>
+    <form action="region_form">
+        <label for="id_region">Регион:</label>
+        <select name="id_region">
+          <?php
+            $id_okruga=$_POST('id_okruga');
+            require_once "db.php";
+            $conn = db();
+            if (!$conn) {
+                die('Ошибка подключения: ' . mysqli_connect_error());
+            }
+            $sql="SELECT id_region, name FROM regions Where id_okruga=$id_okruga";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                 while ($row = mysqli_fetch_assoc($result)) {
+                    echo'<option value="'. $row['id_region'] .'">' . $row['name'] . '</option>';
+                 }
+            }
+            else{
+                echo 'Результатов нет';
+            }
+          ?>
+        <label for="id_hike">Тропа:</label>
+        <select name="id_hike"></select>
+          <?php
+            require_once "db.php";
+            $conn = db();
+            if (!$conn) {
+                die('Ошибка подключения: ' . mysqli_connect_error());
+            }
+            $sql="SELECT id_hike, name_hike name FROM hike WHERE hike.id_region=region.id_region";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                 while ($row = mysqli_fetch_assoc($result)) {
+                    echo'<option value="'. $row['id_hike'] .'">' . $row['name_hike'] . '</option>';
+                 }
+            }
+            else{
+                echo 'Результатов нет';
+            }
+          ?>
+        </select>
+    </form>
+    
   </main>
 </div>
 </body>
