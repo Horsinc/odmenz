@@ -1,43 +1,41 @@
 .tovar-2 {
-    flex-shrink: 0;
-    position: relative;
-    width: 438px;
-    height: 700px;
-    background: rgb(61 61 61 / 43%);
-    z-index: 17;
-    border-radius: 40px;
-    background-color: #00000069;
-    margin: 50px;
+	flex-shrink: 0;
+	position: relative;
+	width: 438px;
+	height: 700px;
+	background: rgb(61 61 61 / 43%);
+	z-index: 17;
+	border-radius: 40px;
+	background-color: #00000069;
+	margin: 50px;
 }
 .mini-shop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: auto;
-    height: auto;
-    margin: 50px 0 0 auto;
-    z-index: 17;
-    flex-wrap: wrap;
-    padding: 1%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: auto;
+	height: auto;
+	margin: 50px 0 0 auto;
+	z-index: 17;
+	flex-wrap: wrap;
+	padding: 1%;
 }
 
-body, html {
-    height: 100%;
-    min-height: 100%;
-    margin: 0;
-    display: inline;
-    min-width: 100%;
-    width: 100%;
-    background-image: url(../img/header_back.png);
-    background-size: cover;
-    /* background-position: revert-layer; */
-    background-repeat: initial;
-    background-attachment: fixed;
+body,
+html {
+	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	display: inline;
+	min-width: 100%;
+	width: 100%;
+	background-image: url(../img/header_back.png);
+	background-size: cover;
+	/* background-position: revert-layer; */
+	background-repeat: initial;
+	background-attachment: fixed;
 }
-
-
-
 
 /*.mini-shop {*/
 /*display: flex;*/
@@ -398,11 +396,11 @@ html {
 }
 
 header {
-width: 100%;
-    min-height: 100px;
-    background-size: cover;
-    background-position: center center;
-    margin-bottom: -648px;
+	width: 100%;
+	min-height: 100px;
+	background-size: cover;
+	background-position: center center;
+	margin-bottom: -648px;
 }
 
 .containerr {
@@ -557,7 +555,7 @@ html {
 
 #registrationBlock.visible {
 	opacity: 1;
-	z-index:18;
+	z-index: 18;
 }
 
 .container__form {
@@ -720,4 +718,3 @@ html {
 		z-index: 5;
 	}
 }
-

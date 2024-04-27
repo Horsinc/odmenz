@@ -6,11 +6,8 @@
 <body>
   <header class="header">
     <div class="containerr containerr--header">
-      <span class="turistic"><a href="2.php" class="textheader">Туришки</a></span>
-      <span class="about-us"><a href="2.html" class="textheader">О нас</a></span>
+      <span class="turistic"><a href="index.php" class="textheader">Туришки</a></span>
       <span class="tours"><a href="Tours_page.php" class="textheader">Туры</a></span>
-      <span class="equipment"><a href="2.php" class="textheader">Экипировка</a></span>
-      <span class="contacts"><a href="2.html" class="textheader">Контакты</a></span>
       <?php
         session_start();
 
